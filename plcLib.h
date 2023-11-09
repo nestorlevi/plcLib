@@ -26,7 +26,7 @@
 
 // Enable monitoring of inputs and outputs for serial monitor
 // (Increases code size but enables remote debugging via the serial port)
-#define monitorEnable
+//#define monitorEnable	//Can define in extern file
 // Comment out the above line to disable monitoring
 
 #ifndef noPinDefs
@@ -180,8 +180,8 @@ class Pulse
   public:
     Pulse();
 	void inClock();
-	void rising();
-	void falling();
+	unsigned int rising();
+	unsigned int falling();
   private:
 	unsigned int _pulseInput;
 	unsigned int _pulseUpEdge;
