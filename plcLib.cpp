@@ -998,14 +998,16 @@ void Pulse::inClock()				// Read the clock input method
 	}
 }
 
-void Pulse::rising()		        // Pulse rising edge detected method
+unsigned int Pulse::rising()		        // Pulse rising edge detected method
 {
 	scanValue = _pulseUpEdge;		// scanValue = 1 if rising edge detected, 0 otherwise
+	return scanValue;
 }
 
-void Pulse::falling()		        // Pulse falling edge detected method
+unsigned int Pulse::falling()		        // Pulse falling edge detected method
 {
 	scanValue = _pulseDownEdge;		// scanValue = 1 if falling edge detected, 0 otherwise
+	return scanValue;
 }
 
 // Serial monitor update pin status function
@@ -1024,6 +1026,7 @@ void pinStatusUpdate(int pin, byte type, unsigned int scanValue)
 // Serial monitor function
 void serialMonitor(char IoMap[])
 {
+#ifdef monitorEnable
 	if (serialFirstRun){                            // If running for the first time then
 		for (int x = 0; x < maxPins; x++){          // clear all pin values
 			pinValue[x].statusValue = 0;
@@ -1115,4 +1118,5 @@ void serialMonitor(char IoMap[])
 		serialCommand="";                           // Clear command string
 		serialCommandFlag = false;                  // Set command available flag to False
 	}
+#endif
 }
