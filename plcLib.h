@@ -1,5 +1,5 @@
 /*
-  plcLib Version 1.4.1, last updated 1 October, 2017.
+  plcLib Version 1.4.1, last updated 9/11/23
   
   A simple Programmable Logic Controller (PLC) library for the
   Arduino and compatibles.
